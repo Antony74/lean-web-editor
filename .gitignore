@@ -5,3 +5,4 @@ lib
 *.tgz
 /dist
 /.vscode
+fetch_lean_js.js

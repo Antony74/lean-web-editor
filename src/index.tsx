@@ -257,19 +257,26 @@ class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState> {
   }
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+function fixedEncodeURIComponent(str) {
+  return encodeURIComponent(str).replace(/[!'()*]/g, (c) => {
+    return '%' + c.charCodeAt(0).toString(16);
+  });
+}
+
 const defaultValue =
   '-- Live javascript version of Lean\n\nexample (m n : ℕ) : m + n = n + m :=\nby simp';
 
 function App() {
   let value = defaultValue;
   if (window.location.hash.startsWith('#code=')) {
-    value = decodeURI(window.location.hash.substring(6));
+    value = decodeURIComponent(window.location.hash.substring(6));
   }
 
   const fn = monaco.Uri.file('test.lean').fsPath;
   return (
     <LeanEditor file={fn} initialValue={value} onValueChange={(newValue) => {
-      history.replaceState(undefined, undefined, '#code=' + encodeURI(newValue));
+      history.replaceState(undefined, undefined, '#code=' + fixedEncodeURIComponent(newValue));
     }} />
   );
 }

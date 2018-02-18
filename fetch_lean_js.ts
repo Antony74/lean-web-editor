@@ -10,17 +10,17 @@ if (!fs.existsSync(dir)) {
 const baseUrl = 'https://leanprover.github.io/live/latest/';
 
 ['lean_js_js.js', 'lean_js_wasm.js', 'lean_js_wasm.wasm', 'library.zip'].forEach((filename: string) => {
-    superagent.get(baseUrl + filename).then((response: superagent.Response) => {
 
-        fs.open(dir + filename, 'w', (err, fileDescriptor) => {
-            if (err) {
-                console.error('Error: ' + err.message);
-            } else {
-                response.pipe(fs.createWriteStream(null, {fd: fileDescriptor}));
+    fs.open(dir + filename, 'w', (fsError, fileDescriptor) => {
+        if (fsError) {
+            console.error('Error: ' + fsError.message);
+        } else {
+            superagent.get(baseUrl + filename).on('error', (superagentError) => {
+                console.error(['Error:', superagentError.message, baseUrl + filename ].join(' '));
+            }).pipe(fs.createWriteStream(null, {fd: fileDescriptor})).on('close', (superagentError) => {
                 console.log(filename);
-            }
-        });
-    }).catch((error: superagent.ResponseError) => {
-        console.error(['Error:', error.message, baseUrl + filename ].join(' '));
+            });
+
+        }
     });
 });

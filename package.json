@@ -7,7 +7,8 @@
     "fetch": "tsc fetch_lean_js.ts && node fetch_lean_js.js",
     "install": "npm run fetch",
     "lint": "tslint src/*.ts* fetch_lean_js.ts",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "webpack": "webpack"
   },
   "author": "Gabriel Ebner",
   "license": "Apache-2.0",

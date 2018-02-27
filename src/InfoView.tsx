@@ -1,8 +1,9 @@
 import { Message } from 'lean-client-js-browser';
 import * as React from 'react';
-import { GoalWidget, GoalWidgetProps, Position } from './GoalWidget';
+import { GoalWidget, GoalWidgetProps } from './GoalWidget';
 import { allMessages, server } from './langservice';
 import { MessageWidget } from './MessageWidget';
+import { Position } from './widgetUtils';
 
 interface InfoViewProps {
   file: string;

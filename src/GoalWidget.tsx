@@ -1,11 +1,6 @@
 import { InfoRecord } from 'lean-client-js-browser';
 import * as React from 'react';
-import { leanColorize } from './leanColorize';
-
-export interface Position {
-  line: number;
-  column: number;
-}
+import { leanColorize, Position } from './widgetUtils';
 
 export interface GoalWidgetProps {
   goal: InfoRecord;

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import * as sp from 'react-split-pane';
-import { Position } from './GoalWidget';
 import { InfoView } from './InfoView';
 import { PageHeader } from './PageHeader';
+import { Position } from './widgetUtils';
 const SplitPane: any = sp;
 
 interface LeanEditorProps {

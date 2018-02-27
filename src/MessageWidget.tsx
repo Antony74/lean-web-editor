@@ -1,6 +1,6 @@
 import { Message } from 'lean-client-js-browser';
 import * as React from 'react';
-import { leanColorize } from './leanColorize';
+import { leanColorize } from './widgetUtils';
 
 interface MessageWidgetProps {
   msg: Message;

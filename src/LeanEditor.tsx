@@ -2,7 +2,7 @@ import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import * as sp from 'react-split-pane';
 import { InfoView } from './InfoView';
-import { PageHeader } from './PageHeader';
+import { RunningStatus } from './RunningStatus';
 import { Position } from './widgetUtils';
 const SplitPane: any = sp;
 
@@ -64,10 +64,9 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
   }
 
   render() {
-    return (<div>
-      <div style={{height: '5em', overflow: 'hidden'}}>
-        <PageHeader file={this.props.file}/>
-      </div>
+    return (
+    <div>
+      <RunningStatus file={this.props.file}/>
       <div style={{height: 'calc(99vh - 5em)', width: '100%', position: 'relative'}} ref='root'>
         <SplitPane split={this.state.split} defaultSize='50%' allowResize={true}>
           <div ref='monaco' style={{

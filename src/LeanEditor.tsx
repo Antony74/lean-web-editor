@@ -48,6 +48,7 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
       this.setState({cursor: {line: e.position.lineNumber, column: e.position.column - 1}}));
     this.determineSplit();
     window.addEventListener('resize', this.updateDimensions.bind(this));
+    monaco.editor.setTheme('vs-dark');
   }
   componentWillUnmount() {
     this.editor.dispose();
@@ -65,7 +66,7 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
 
   render() {
     return (
-    <div>
+    <div className='leanEditor'>
       <RunningStatus file={this.props.file}/>
       <div style={{height: 'calc(99vh - 5em)', width: '100%', position: 'relative'}} ref='root'>
         <SplitPane split={this.state.split} defaultSize='50%' allowResize={true}>

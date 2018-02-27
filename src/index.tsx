@@ -45,6 +45,3 @@ const leanJsOpts: LeanJsOpts = {
   );
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  monaco.editor.setTheme('vs-dark');
-});

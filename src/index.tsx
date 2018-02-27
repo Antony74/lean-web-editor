@@ -6,14 +6,6 @@ import * as sp from 'react-split-pane';
 import { allMessages, currentlyRunning, registerLeanLanguage, server } from './langservice';
 export const SplitPane: any = sp;
 
-const codeBlockStyle = {
-  display: 'block',
-  fontFamily: 'monospace',
-  whiteSpace: 'pre-wrap',
-  marginTop: '1em',
-  fontSize: '110%',
-};
-
 function leanColorize(text: string): string {
   // TODO(gabriel): use promises
   const colorized: string = (monaco.editor.colorize(text, 'lean', {}) as any)._value;
@@ -35,7 +27,7 @@ function MessageWidget({msg}: MessageWidgetProps) {
       <div style={{ borderBottom: '1px solid', fontFamily: 'sans-serif',
           fontWeight: 'bold', color: colorOfSeverity[msg.severity] }}>
         {msg.pos_line}:{msg.pos_col}: {msg.severity}: {msg.caption}</div>
-      <div style={codeBlockStyle} dangerouslySetInnerHTML={{__html: leanColorize(msg.text)}}/>
+      <div className='codeblock' dangerouslySetInnerHTML={{__html: leanColorize(msg.text)}}/>
     </div>
   );
 }
@@ -54,7 +46,7 @@ function GoalWidget({goal, position}: GoalWidgetProps) {
     <div style={{paddingBottom: '1em'}}>
       <div style={{borderBottom: '1px solid', fontWeight: 'bold', fontFamily: 'sans-serif'}}>
         goal at {position.line}:{position.column}</div>
-      <div style={codeBlockStyle} dangerouslySetInnerHTML={{__html: leanColorize(goal.state)}}/>
+      <div className='codeblock' dangerouslySetInnerHTML={{__html: leanColorize(goal.state)}}/>
     </div>
   );
 }

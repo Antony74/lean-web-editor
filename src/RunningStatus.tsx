@@ -37,10 +37,10 @@ export class RunningStatus extends React.Component<RunningStatusProps, RunningSt
 
   render() {
     const isRunning = this.state.currentlyRunning
-      ? <div style={{fontStyle: 'italic'}}>(running...)</div>
-      : <div>&nbsp;</div>;
+      ? <div>Status: Running...</div>
+      : <div>Status: Ready</div>;
     return (
-        <div style={{padding: '1em'}}>
+        <div style={{paddingLeft: '1ex', paddingRight: '1ex'}}>
           {isRunning}
         </div>
     );

@@ -65,20 +65,24 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
   }
 
   render() {
+    const height = 300;
+    const containerHeight = height + 'px';
+    const editorHeight = (height - 10) + 'px';
+    const outputHeight = (height - 20) + 'px';
     return (
     <div className='leanEditor'>
-      <RunningStatus file={this.props.file}/>
-      <div style={{height: 'calc(99vh - 5em)', width: '100%', position: 'relative'}} ref='root'>
+      <div style={{height: containerHeight, width: '100%', position: 'relative'}} ref='root'>
         <SplitPane split={this.state.split} defaultSize='50%' allowResize={true}>
           <div ref='monaco' style={{
-            height: '100%', width: '100%',
+            height: editorHeight, width: '100%',
             margin: '1ex', marginRight: '2em',
             overflow: 'hidden'}}/>
-          <div style={{overflowY: 'scroll', height: 'calc(100% - 10px)', margin: '1ex' }}>
+          <div style={{overflowY: 'scroll', height: outputHeight, margin: '1ex' }}>
             <InfoView file={this.props.file} cursor={this.state.cursor}/>
           </div>
         </SplitPane>
       </div>
+      <RunningStatus file={this.props.file}/>
     </div>);
   }
 }

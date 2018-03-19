@@ -5,14 +5,44 @@ import { render } from 'react-dom';
 import { registerLeanLanguage } from './langservice';
 import { LeanEditor } from './LeanEditor';
 
+class Exercise {
+  html: JSX.Element;
+  code: string;
+}
+
 const defaultValue =
   '-- Live javascript version of Lean\n\nexample (m n : ℕ) : m + n = n + m :=\nby simp';
 
+const exercises: Exercise[] = [
+  {
+    html: <div>Exercise 1</div>,
+    code: defaultValue,
+  },
+  {
+    html: <div>Exercise 2</div>,
+    code: defaultValue,
+  },
+];
+
 function App() {
 
-  const fn = monaco.Uri.file('test.lean').fsPath;
   return (
-    <LeanEditor file={fn} initialValue={defaultValue} />
+    <div>
+      {
+        exercises.map((exercise: Exercise, index: number): JSX.Element => {
+          const exFile = monaco.Uri.file('exercise' + index + '.lean').fsPath;
+
+          return (
+            <div key={index}>
+              <br/>
+              {exercise.html}
+              <LeanEditor file={exFile} initialValue={exercise.code} />
+              <br/>
+            </div>
+          );
+        })
+      }
+    </div>
   );
 }
 
@@ -31,4 +61,3 @@ const leanJsOpts: LeanJsOpts = {
       document.getElementById('root'),
   );
 });
-

@@ -6,3 +6,4 @@ lib
 /dist
 /.vscode
 fetch_lean_js.js
+exercises/populate.js

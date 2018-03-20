@@ -1,0 +1,22 @@
+{
+  "name": "exercises",
+  "version": "1.0.0",
+  "description": "Convert Incredible Proof Machine sessions to Lean",
+  "scripts": {
+    "populate": "tsc populate.ts && node populate.js",
+    "lint": "tslint populate.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antony74/lean-web-editor.git"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "js-yaml": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^3.10.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.1"
+  }
+}

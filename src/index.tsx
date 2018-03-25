@@ -2,24 +2,24 @@
 import { LeanJsOpts } from 'lean-client-js-browser';
 import * as React from 'react';
 import { render } from 'react-dom';
-import { Exercise, exercises } from './exercises';
+import { Exercise, Session, sessions } from './exercises';
 import { registerLeanLanguage } from './langservice';
 import { LeanEditor } from './LeanEditor';
 
-const session: Exercise[] = exercises[0];
+const session: Session = sessions[0];
 
 function App() {
 
   return (
     <div>
+      <h1>{session.name}</h1>
       {
-        session.map((exercise: Exercise, index: number): JSX.Element => {
+        session.exercises.map((exercise: Exercise, index: number): JSX.Element => {
           const exFile = monaco.Uri.file('exercise' + index + '.lean').fsPath;
           const code = exercise.code.join('\n');
 
           return (
             <div key={index}>
-              <br/>
               {exercise.html}
               <LeanEditor file={exFile} initialValue={code} />
               <br/>

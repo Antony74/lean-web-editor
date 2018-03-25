@@ -2,41 +2,26 @@
 import { LeanJsOpts } from 'lean-client-js-browser';
 import * as React from 'react';
 import { render } from 'react-dom';
+import { Exercise, exercises } from './exercises';
 import { registerLeanLanguage } from './langservice';
 import { LeanEditor } from './LeanEditor';
 
-class Exercise {
-  html: JSX.Element;
-  code: string;
-}
-
-const defaultValue =
-  '-- Live javascript version of Lean\n\nexample (m n : ℕ) : m + n = n + m :=\nby simp';
-
-const exercises: Exercise[] = [
-  {
-    html: <div>Exercise 1</div>,
-    code: defaultValue,
-  },
-  {
-    html: <div>Exercise 2</div>,
-    code: defaultValue,
-  },
-];
+const session: Exercise[] = exercises[0];
 
 function App() {
 
   return (
     <div>
       {
-        exercises.map((exercise: Exercise, index: number): JSX.Element => {
+        session.map((exercise: Exercise, index: number): JSX.Element => {
           const exFile = monaco.Uri.file('exercise' + index + '.lean').fsPath;
+          const code = exercise.code.join('\n');
 
           return (
             <div key={index}>
               <br/>
               {exercise.html}
-              <LeanEditor file={exFile} initialValue={exercise.code} />
+              <LeanEditor file={exFile} initialValue={code} />
               <br/>
             </div>
           );

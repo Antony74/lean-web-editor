@@ -21,6 +21,8 @@ const sessions = allSessions.slice(0, 5); // Just take the sessions on proposist
 
 const tsxLines: string[] = [];
 
+tsxLines.push("import * as React from 'react';");
+tsxLines.push('');
 tsxLines.push('export class Exercise {');
 tsxLines.push('    html: JSX.Element;');
 tsxLines.push('    code: string[];');
@@ -49,7 +51,7 @@ sessions.forEach((session: Session, sessionIndex: number) => {
 tsxLines.push('];');
 tsxLines.push('');
 
-fs.writeFileSync(__dirname + '/../exercises.tsx', tsxLines.join('\n'), 'utf8');
+fs.writeFileSync(__dirname + '/../src/exercises.tsx', tsxLines.join('\n'), 'utf8');
 
 //
 // getHtml
@@ -59,7 +61,7 @@ function getHtml(task: Task, sessionIndex: number, taskIndex: number) {
 
     htmlLines.push('<div>');
     const exerciseNumber = [sessionIndex + 1, taskIndex + 1].join('.');
-    htmlLines.push('  Excercise ' + exerciseNumber + '<br/>');
+    htmlLines.push('  <h3>Excercise ' + exerciseNumber + '</h3>');
     console.log(exerciseNumber);
 
     if (task.assumptions && task.assumptions.length) {
@@ -107,6 +109,7 @@ function getCode(task: Task) {
 
         codeLines.push('  : ' + conclusion + ' := show ' + conclusion + ', from');
         codeLines.push('    sorry');
+        codeLines.push('');
     });
 
     return codeLines.map((s: string): string => {

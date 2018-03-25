@@ -23,7 +23,7 @@ const tsxLines: string[] = [];
 
 tsxLines.push('export class Exercise {');
 tsxLines.push('    html: JSX.Element;');
-tsxLines.push('    code: string;');
+tsxLines.push('    code: string[];');
 tsxLines.push('  }');
 tsxLines.push('');
 
@@ -37,7 +37,9 @@ sessions.forEach((session: Session, sessionIndex: number) => {
         tsxLines.push('    {');
         tsxLines.push('      html:');
         tsxLines.push(getHtml(task, sessionIndex, taskIndex) + ',');
-        tsxLines.push('      code: \'\',');
+        tsxLines.push('      code: [');
+        tsxLines.push(getCode(task));
+        tsxLines.push('      ],');
         tsxLines.push('    },');
     });
 
@@ -49,6 +51,9 @@ tsxLines.push('');
 
 fs.writeFileSync(__dirname + '/../exercises.tsx', tsxLines.join('\n'), 'utf8');
 
+//
+// getHtml
+//
 function getHtml(task: Task, sessionIndex: number, taskIndex: number) {
     const htmlLines: string[] = [];
 
@@ -81,5 +86,30 @@ function getHtml(task: Task, sessionIndex: number, taskIndex: number) {
 
     return htmlLines.map((s: string): string => {
         return '        ' + s;
+    }).join('\n');
+}
+
+//
+// getCode
+//
+function getCode(task: Task) {
+    const codeLines: string[] = [];
+
+    task.conclusions.forEach((conclusion: string) => {
+
+        codeLines.push('example {A B C D : Prop}');
+
+        if (task.assumptions) {
+            task.assumptions.forEach((assumption: string, index: number) => {
+                codeLines.push('    (h' + (index + 1) + ' : ' + assumption + ')');
+            });
+        }
+
+        codeLines.push('  : ' + conclusion + ' := show ' + conclusion + ', from');
+        codeLines.push('    sorry');
+    });
+
+    return codeLines.map((s: string): string => {
+        return "        '" + s + "',";
     }).join('\n');
 }

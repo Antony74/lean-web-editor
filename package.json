@@ -16,10 +16,12 @@
     "@types/node": "^9.4.6",
     "@types/react": "16.0.38",
     "@types/react-dom": "16.0.4",
+    "@types/react-router-dom": "^4.2.6",
     "lean-client-js-browser": "^1.2.12",
     "monaco-editor": "0.10.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
+    "react-router-dom": "^4.2.2",
     "react-split-pane": "0.1.77"
   },
   "devDependencies": {

@@ -24,7 +24,12 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
   constructor(props) {
     super(props);
     this.state = {split: 'vertical'};
-    this.model = monaco.editor.createModel(this.props.initialValue, 'lean', monaco.Uri.file(this.props.file));
+    const uri: monaco.Uri = monaco.Uri.file(this.props.file);
+    this.model = monaco.editor.getModel(uri);
+    if (!this.model) {
+      this.model = monaco.editor.createModel(this.props.initialValue, 'lean', uri);
+    }
+
     this.model.onDidChangeContent((e) =>
       this.props.onValueChange &&
       this.props.onValueChange(this.model.getValue()));

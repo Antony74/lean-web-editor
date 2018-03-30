@@ -2,12 +2,16 @@
 import { LeanJsOpts } from 'lean-client-js-browser';
 import * as React from 'react';
 import { render } from 'react-dom';
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Route, RouteComponentProps } from 'react-router-dom';
 import { Exercise, Session, sessions } from './exercises';
 import { registerLeanLanguage } from './langservice';
 import { LeanEditor } from './LeanEditor';
 
-class Pagination extends React.Component {
+interface PaginationProps {
+  nSession: number;
+}
+
+class Pagination extends React.Component<PaginationProps> {
 
   constructor(props) {
     super(props);
@@ -28,7 +32,11 @@ class Pagination extends React.Component {
   }
 }
 
-class TheSession extends React.Component<any> {
+interface TheSessionRouteProps {
+  pageNumber: string;
+}
+
+class TheSession extends React.Component<RouteComponentProps<TheSessionRouteProps> > {
 
   constructor(props) {
     super(props);
@@ -51,7 +59,7 @@ class TheSession extends React.Component<any> {
     return (
       <div>
         <br />
-        <Pagination />
+        <Pagination nSession={nSession} />
         <h1>{session.name}</h1>
         {
           session.exercises.map((exercise: Exercise, index: number): JSX.Element => {

@@ -39,7 +39,9 @@ class Pagination extends React.Component<PaginationProps> {
               const nSession = index + 1;
 
               return (
-                <li className='page-item'><a className='page-link' href={'#/' + nSession}>{nSession}</a></li>
+                <li className='page-item' key={index}>
+                  <a className='page-link' href={'#/' + nSession}>{nSession}</a>
+                </li>
               );
             })
           }
@@ -50,11 +52,11 @@ class Pagination extends React.Component<PaginationProps> {
   }
 }
 
-interface TheSessionRouteProps {
-  pageNumber: string;
+interface SessionComponentProps {
+  sessionNumber: string;
 }
 
-class TheSession extends React.Component<RouteComponentProps<TheSessionRouteProps> > {
+class SessionComponent extends React.Component<RouteComponentProps<SessionComponentProps> > {
 
   constructor(props) {
     super(props);
@@ -64,8 +66,8 @@ class TheSession extends React.Component<RouteComponentProps<TheSessionRouteProp
   render() {
 
     let nSession = 0;
-    if (this.props.match && this.props.match.params.pageNumber) {
-      nSession = parseInt(this.props.match.params.pageNumber, 10) - 1;
+    if (this.props.match && this.props.match.params.sessionNumber) {
+      nSession = parseInt(this.props.match.params.sessionNumber, 10) - 1;
 
       if (nSession < 0 || nSession >= sessions.length) {
         nSession = 0;
@@ -103,8 +105,8 @@ function App() {
 
   return (
     <div>
-      <Route path='/:pageNumber' component={TheSession} />
-      <Route exact path='/' component={TheSession} />
+      <Route path='/:sessionNumber' component={SessionComponent} />
+      <Route exact path='/' component={SessionComponent} />
     </div>
   );
 }

@@ -45,6 +45,7 @@ module.exports = {
             { from: VSMonacoEditorSrc, to: 'vs', },
             { from: 'public/index.css', to: 'index.css', },
             { from: 'public/lean_logo.svg', to: 'lean_logo.svg', },
+            { from: 'node_modules/bootstrap/dist/css/bootstrap.min.css', to: 'bootstrap.min.css', },
         ]),
     ],
     node: {

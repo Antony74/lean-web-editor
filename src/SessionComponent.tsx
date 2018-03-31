@@ -4,34 +4,43 @@ import { Exercise, Session, sessions } from './exercises';
 import { LeanEditor } from './LeanEditor';
 import { Pagination } from './Pagination';
 
+let bFirstTime: boolean = true;
+
 interface SessionComponentProps {
   fullExerciseNumber: string;
 }
 
 export class SessionComponent extends React.Component<RouteComponentProps<SessionComponentProps> > {
 
-  sExerciseNumber = '1';
+  sExerciseNumber = '0';
 
   constructor(props) {
     super(props);
     this.state = { messages: [] };
 
-    this.props.history.listen((location, action) => {
-      if (this.sExerciseNumber === '1') {
-        document.body.scrollIntoView();
-      } else {
-        const elm: HTMLElement = document.getElementById('current');
-        if (elm) {
-          elm.scrollIntoView();
-        }
-      }
-    });
+    this.props.history.listen(this.onRouted.bind(this));
   }
+
+  onRouted() {
+    if (this.sExerciseNumber === '0') {
+      document.body.scrollIntoView();
+    } else {
+      const elm: HTMLElement = document.getElementById('current');
+      if (elm) {
+        elm.scrollIntoView();
+      }
+    }
+}
 
   render() {
 
+    if (bFirstTime) {
+      setImmediate(this.onRouted.bind(this));
+      bFirstTime = false;
+    }
+
     let sSessionNumber: string = '1';
-    this.sExerciseNumber = '1';
+    this.sExerciseNumber = '0';
 
     if (this.props.match && this.props.match.params.fullExerciseNumber) {
       const arr: string[] = this.props.match.params.fullExerciseNumber.split('.');

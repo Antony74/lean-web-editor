@@ -20,7 +20,7 @@ export class Pagination extends React.Component<PaginationProps> {
     prevClass += ' disabled';
     }
 
-    if (this.props.nSession + 1 >= sessions.length) {
+    if (this.props.nSession + 1 >= sessions.sessions.length) {
     nextClass += ' disabled';
     }
 
@@ -29,7 +29,7 @@ export class Pagination extends React.Component<PaginationProps> {
         <ul className='pagination justify-content-center'>
           <li className={prevClass}><a className='page-link' href={'#/' + this.props.nSession}>Previous</a></li>
           {
-              sessions.map((session: Session, index: number) => {
+              sessions.sessions.map((session: Session, index: number) => {
               const nSession = index + 1;
 
               return (

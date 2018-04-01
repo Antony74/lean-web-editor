@@ -24,39 +24,47 @@ const tsxLines: string[] = [];
 tsxLines.push("import * as React from 'react';");
 tsxLines.push('');
 tsxLines.push('export class Exercise {');
-tsxLines.push('    html: JSX.Element;');
-tsxLines.push('    code: string[];');
-tsxLines.push('  }');
+tsxLines.push('  html: JSX.Element;');
+tsxLines.push('  code: string[];');
+tsxLines.push('}');
 tsxLines.push('');
 tsxLines.push('export class Session {');
-tsxLines.push('    name: string;');
-tsxLines.push('    exercises: Exercise[];');
-tsxLines.push('  }');
+tsxLines.push('  title: JSX.Element;');
+tsxLines.push('  exercises: Exercise[];');
+tsxLines.push('}');
+tsxLines.push('');
+tsxLines.push('export class Sessions {');
+tsxLines.push('  title: JSX.Element;');
+tsxLines.push('  sessions: Session[];');
+tsxLines.push('}');
 tsxLines.push('');
 
-tsxLines.push('export const sessions: Session[] = [');
+tsxLines.push('export const sessions: Sessions = {');
+tsxLines.push("  title: <h1 style={{textAlign: 'center'}}>Propositional Logic in Lean</h1>,");
+tsxLines.push('  sessions: [');
 
 sessions.forEach((session: Session, sessionIndex: number) => {
 
-    tsxLines.push('  {');
-    tsxLines.push("    name: 'Session " + (sessionIndex + 1) + "',");
-    tsxLines.push('    exercises: [');
+    tsxLines.push('    {');
+    tsxLines.push('      title: <h2>Session ' + (sessionIndex + 1) + '</h2>,');
+    tsxLines.push('      exercises: [');
 
     session.tasks.forEach((task: Task, taskIndex: number) => {
-        tsxLines.push('      {');
-        tsxLines.push('        html:');
+        tsxLines.push('        {');
+        tsxLines.push('          html:');
         tsxLines.push(getHtml(task, sessionIndex, taskIndex) + ',');
-        tsxLines.push('        code: [');
+        tsxLines.push('          code: [');
         tsxLines.push(getCode(task));
-        tsxLines.push('        ],');
-        tsxLines.push('      },');
+        tsxLines.push('          ],');
+        tsxLines.push('        },');
     });
 
-    tsxLines.push('    ],');
-    tsxLines.push('  },');
+    tsxLines.push('      ],');
+    tsxLines.push('    },');
 });
 
-tsxLines.push('];');
+tsxLines.push('  ],');
+tsxLines.push('};');
 tsxLines.push('');
 
 fs.writeFileSync(__dirname + '/../src/exercises.tsx', tsxLines.join('\n'), 'utf8');
@@ -95,7 +103,7 @@ function getHtml(task: Task, sessionIndex: number, taskIndex: number) {
     htmlLines.push('</div>');
 
     return htmlLines.map((s: string): string => {
-        return '          ' + s;
+        return '            ' + s;
     }).join('\n');
 }
 
@@ -121,6 +129,6 @@ function getCode(task: Task) {
     });
 
     return codeLines.map((s: string): string => {
-        return "          '" + s + "',";
+        return "            '" + s + "',";
     }).join('\n');
 }

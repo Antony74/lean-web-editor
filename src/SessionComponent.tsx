@@ -55,11 +55,11 @@ export class SessionComponent extends React.Component<RouteComponentProps<Sessio
 
     let nSession: number = parseInt(sSessionNumber, 10) - 1;
 
-    if (nSession < 0 || nSession >= sessions.length) {
+    if (nSession < 0 || nSession >= sessions.sessions.length) {
       nSession = 0;
     }
 
-    const session: Session = sessions[nSession];
+    const session: Session = sessions.sessions[nSession];
 
     let nExercise: number = parseInt(this.sExerciseNumber, 10) - 1;
 
@@ -69,9 +69,9 @@ export class SessionComponent extends React.Component<RouteComponentProps<Sessio
 
     return (
       <div>
-        <br />
+        {sessions.title}
         <Pagination nSession={nSession} />
-        <h1>{session.name}</h1>
+        {session.title}
         {
           session.exercises.map((exercise: Exercise, index: number): JSX.Element => {
 

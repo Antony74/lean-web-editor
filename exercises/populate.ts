@@ -108,6 +108,18 @@ function getHtml(task: Task, sessionIndex: number, taskIndex: number) {
 }
 
 //
+// getCaptialLetters
+//
+function getCapitalLetters(accumulator1: any, s: string): any {
+    return s.split('').reduce((accumulator2: any, char: string): any => {
+        if (char >= 'A' && char <= 'Z') {
+            accumulator2[char] = char;
+        }
+        return accumulator2;
+    }, accumulator1);
+}
+
+//
 // getCode
 //
 function getCode(task: Task) {
@@ -115,10 +127,19 @@ function getCode(task: Task) {
 
     task.conclusions.forEach((conclusion: string) => {
 
-        codeLines.push('example {A B C D : Prop}');
+        conclusion = conclusion.replace(/⊥/g, 'false');
+
+        let propositions: any = getCapitalLetters({}, conclusion);
+
+        if (task.assumptions) {
+            propositions = task.assumptions.reduce(getCapitalLetters, propositions);
+        }
+
+        codeLines.push('example {' + Object.keys(propositions).sort().join(' ') + ' : Prop}');
 
         if (task.assumptions) {
             task.assumptions.forEach((assumption: string, index: number) => {
+                assumption = assumption.replace(/⊥/g, 'false');
                 codeLines.push('    (h' + (index + 1) + ' : ' + assumption + ')');
             });
         }

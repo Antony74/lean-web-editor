@@ -81,11 +81,12 @@ export class SessionComponent extends React.Component<RouteComponentProps<Sessio
               idName = 'current';
             }
 
-            const exFile = monaco.Uri.file('exercise' + index + '.lean').fsPath;
+            const filename = 'exercise' + (nSession + 1) + '.' + (index + 1) + '.lean';
+            const exFile = monaco.Uri.file(filename).fsPath;
             const code = exercise.code.join('\n');
 
             return (
-              <div key={index} id={idName}>
+              <div key={filename} id={idName}>
                 {exercise.html}
                 <LeanEditor file={exFile} initialValue={code} />
                 <br/>

@@ -138,9 +138,20 @@ function getCode(task: Task) {
         codeLines.push('example {' + Object.keys(propositions).sort().join(' ') + ' : Prop}');
 
         if (task.assumptions) {
-            task.assumptions.forEach((assumption: string, index: number) => {
+
+            let index: number = 0;
+
+            task.assumptions.forEach((assumption: string) => {
+                let varName: string = '';
+                if (assumption.length === 1) {
+                    varName = 'h' + assumption.toLowerCase();
+                } else {
+                    ++index;
+                    varName = 'h' + index;
+                }
+
                 assumption = assumption.replace(/⊥/g, 'false');
-                codeLines.push('    (h' + (index + 1) + ' : ' + assumption + ')');
+                codeLines.push('    (' + varName + ' : ' + assumption + ')');
             });
         }
 

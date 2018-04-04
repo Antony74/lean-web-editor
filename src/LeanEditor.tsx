@@ -1,9 +1,12 @@
+import { Message } from 'lean-client-js-browser';
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import * as sp from 'react-split-pane';
+import { Subject } from 'rxjs';
 import { InfoView } from './InfoView';
 import { RunningStatus } from './RunningStatus';
 import { Position } from './widgetUtils';
+
 const SplitPane: any = sp;
 
 interface LeanEditorProps {
@@ -21,6 +24,8 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
   model: monaco.editor.IModel;
   editor: monaco.editor.IStandaloneCodeEditor;
 
+  extraMessagesSubject: Subject<Message[]> = new Subject<Message[]>();
+
   constructor(props) {
     super(props);
     this.state = {split: 'vertical'};
@@ -30,9 +35,20 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
       this.model = monaco.editor.createModel(this.props.initialValue, 'lean', uri);
     }
 
-    this.model.onDidChangeContent((e) =>
-      this.props.onValueChange &&
-      this.props.onValueChange(this.model.getValue()));
+    this.model.onDidChangeContent((e) => {
+
+      this.extraMessagesSubject.next([{
+        file_name: this.props.file,
+        pos_line: 1,
+        pos_col: 0,
+        severity: 'warning',
+        caption: 'caption',
+        text: 'Content has changed, this is a test',
+      }]);
+
+      return this.props.onValueChange
+      &&     this.props.onValueChange(this.model.getValue());
+    });
   }
 
   componentDidMount() {
@@ -81,13 +97,15 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
           <div ref='monaco' style={{
             height: editorHeight, width: '100%',
             margin: '1ex', marginRight: '2em',
-            overflow: 'hidden'}}/>
+            overflow: 'hidden'}} />
           <div style={{overflowY: 'scroll', height: outputHeight, margin: '1ex' }}>
-            <InfoView file={this.props.file} cursor={this.state.cursor}/>
+            <InfoView file={this.props.file}
+                      cursor={this.state.cursor}
+                      extraMessagesStream={this.extraMessagesSubject} />
           </div>
         </SplitPane>
       </div>
-      <RunningStatus file={this.props.file}/>
+      <RunningStatus file={this.props.file} />
     </div>);
   }
 }

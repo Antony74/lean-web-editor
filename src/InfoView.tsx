@@ -1,5 +1,6 @@
 import { Message } from 'lean-client-js-browser';
 import * as React from 'react';
+import { Observable } from 'rxjs';
 import { GoalWidget, GoalWidgetProps } from './GoalWidget';
 import { allMessages, server } from './langservice';
 import { MessageWidget } from './MessageWidget';
@@ -8,6 +9,7 @@ import { Position } from './widgetUtils';
 interface InfoViewProps {
   file: string;
   cursor?: Position;
+  extraMessagesStream: Observable<Message[]>;
 }
 interface InfoViewState {
   goal?: GoalWidgetProps;
@@ -15,10 +17,16 @@ interface InfoViewState {
 }
 export class InfoView extends React.Component<InfoViewProps, InfoViewState> {
   private subscriptions: monaco.IDisposable[] = [];
+  private extraMessages: Message[] = [];
 
   constructor(props: InfoViewProps) {
     super(props);
     this.state = { messages: [] };
+
+    this.props.extraMessagesStream.subscribe((messages: Message[]) => {
+      this.extraMessages = messages;
+      this.updateMessages(this.props);
+    });
   }
 
   componentWillMount() {
@@ -43,7 +51,7 @@ export class InfoView extends React.Component<InfoViewProps, InfoViewState> {
 
   render() {
     const goal = this.state.goal && (<div key={'goal'}>{GoalWidget(this.state.goal)}</div>);
-    const msgs = this.state.messages.map((msg, i) =>
+    const msgs = this.state.messages.concat(this.extraMessages).map((msg, i) =>
       (<div key={i}>{MessageWidget({msg})}</div>));
     return (
       <div>

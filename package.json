@@ -23,7 +23,8 @@
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-split-pane": "0.1.77"
+    "react-split-pane": "0.1.77",
+    "rxjs": "^5.5.8"
   },
   "devDependencies": {
     "@types/superagent": "^3.5.7",

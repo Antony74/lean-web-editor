@@ -26,6 +26,10 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
 
   extraMessagesSubject: Subject<Message[]> = new Subject<Message[]>();
 
+  reset = (() => {
+    this.model.setValue(this.props.initialValue);
+  }).bind(this);
+
   constructor(props) {
     super(props);
     this.state = {split: 'vertical'};
@@ -91,21 +95,25 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
     const editorHeight = (height - 10) + 'px';
     const outputHeight = (height - 20) + 'px';
     return (
-    <div className='leanEditor'>
-      <div style={{height: containerHeight, width: '100%', position: 'relative'}} ref='root'>
-        <SplitPane split={this.state.split} defaultSize='50%' allowResize={true}>
-          <div ref='monaco' style={{
-            height: editorHeight, width: '100%',
-            margin: '1ex', marginRight: '2em',
-            overflow: 'hidden'}} />
-          <div style={{overflowY: 'scroll', height: outputHeight, margin: '1ex' }}>
-            <InfoView file={this.props.file}
-                      cursor={this.state.cursor}
-                      extraMessagesStream={this.extraMessagesSubject} />
-          </div>
-        </SplitPane>
+      <div className='leanEditor'>
+        <div style={{marginLeft: '1ex'}}>
+          <button type='button' className='btn btn-danger' onClick={this.reset} >Reset</button>
+        </div>
+        <div style={{height: containerHeight, width: '100%', position: 'relative'}} ref='root'>
+          <SplitPane split={this.state.split} defaultSize='50%' allowResize={true}>
+            <div ref='monaco' style={{
+              height: editorHeight, width: '100%',
+              margin: '1ex', marginRight: '2em',
+              overflow: 'hidden'}} />
+            <div style={{overflowY: 'scroll', height: outputHeight, margin: '1ex' }}>
+              <InfoView file={this.props.file}
+                        cursor={this.state.cursor}
+                        extraMessagesStream={this.extraMessagesSubject} />
+            </div>
+          </SplitPane>
+        </div>
+        <RunningStatus file={this.props.file} />
       </div>
-      <RunningStatus file={this.props.file} />
-    </div>);
+    );
   }
 }

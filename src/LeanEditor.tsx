@@ -41,14 +41,34 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
 
     this.model.onDidChangeContent((e) => {
 
-      this.extraMessagesSubject.next([{
-        file_name: this.props.file,
-        pos_line: 1,
-        pos_col: 0,
-        severity: 'warning',
-        caption: 'caption',
-        text: 'Content has changed, this is a test',
-      }]);
+      let target: string = this.model.getValue();
+      let changed: boolean = false;
+
+      const pieces: string[] = this.props.initialValue.split('sorry');
+
+      pieces.forEach((s: string) => {
+        s = s.trim();
+        const pos: number = target.indexOf(s);
+        if (pos === -1) {
+          target = '';
+          changed = true;
+        } else {
+          target = target.substr(pos + s.length);
+        }
+      });
+
+      if (changed) {
+        this.extraMessagesSubject.next([{
+          file_name: this.props.file,
+          pos_line: 1,
+          pos_col: 0,
+          severity: 'warning',
+          caption: '',
+          text: 'The question has changed',
+        }]);
+      } else {
+        this.extraMessagesSubject.next([]);
+      }
 
       return this.props.onValueChange
       &&     this.props.onValueChange(this.model.getValue());

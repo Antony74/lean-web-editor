@@ -33,16 +33,19 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
   constructor(props) {
     super(props);
     this.state = {split: 'vertical'};
+    const initialValue = localStorage.getItem(this.props.file) || this.props.initialValue;
     const uri: monaco.Uri = monaco.Uri.file(this.props.file);
     this.model = monaco.editor.getModel(uri);
     if (!this.model) {
-      this.model = monaco.editor.createModel(this.props.initialValue, 'lean', uri);
+      this.model = monaco.editor.createModel(initialValue, 'lean', uri);
     }
 
     this.model.onDidChangeContent((e) => {
 
+      localStorage.setItem(this.props.file, this.model.getValue());
+
       let target: string = this.model.getValue();
-      let changed: boolean = false;
+      let questionsChanged: boolean = false;
 
       const pieces: string[] = this.props.initialValue.split('sorry');
 
@@ -51,13 +54,13 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
         const pos: number = target.indexOf(s);
         if (pos === -1) {
           target = '';
-          changed = true;
+          questionsChanged = true;
         } else {
           target = target.substr(pos + s.length);
         }
       });
 
-      if (changed) {
+      if (questionsChanged) {
         this.extraMessagesSubject.next([{
           file_name: this.props.file,
           pos_line: 1,

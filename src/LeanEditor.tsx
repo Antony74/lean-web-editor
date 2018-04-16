@@ -117,6 +117,7 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
   textButtonClicked(buttonText: string) {
     return (() => {
       this.editor.trigger('keyboard', 'type', {text: buttonText});
+      this.editor.focus();
     }).bind(this);
   }
 

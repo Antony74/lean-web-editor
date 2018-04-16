@@ -235,7 +235,7 @@ export const sessions: Sessions = {
               <h3>Excercise 1.10</h3>
               Given
               <ul>
-                <li>A∧B∧C</li>
+                <li>(A∧B)∧C</li>
               </ul>
               Show
               <ul>
@@ -246,17 +246,17 @@ export const sessions: Sessions = {
             </div>,
           code: [
             'example {A B C : Prop}',
-            '    (h1 : A∧B∧C)',
+            '    (h1 : (A∧B)∧C)',
             '  : A := show A, from',
             '    sorry',
             '',
             'example {A B C : Prop}',
-            '    (h1 : A∧B∧C)',
+            '    (h1 : (A∧B)∧C)',
             '  : B := show B, from',
             '    sorry',
             '',
             'example {A B C : Prop}',
-            '    (h1 : A∧B∧C)',
+            '    (h1 : (A∧B)∧C)',
             '  : C := show C, from',
             '    sorry',
             '',
@@ -268,7 +268,7 @@ export const sessions: Sessions = {
               <h3>Excercise 1.11</h3>
               Given
               <ul>
-                <li>A∧B∧C</li>
+                <li>(A∧B)∧C</li>
               </ul>
               Show
               <ul>
@@ -277,7 +277,7 @@ export const sessions: Sessions = {
             </div>,
           code: [
             'example {A B C : Prop}',
-            '    (h1 : A∧B∧C)',
+            '    (h1 : (A∧B)∧C)',
             '  : A∧C := show A∧C, from',
             '    sorry',
             '',
@@ -289,7 +289,7 @@ export const sessions: Sessions = {
               <h3>Excercise 1.12</h3>
               Given
               <ul>
-                <li>A∧B∧C</li>
+                <li>(A∧B)∧C</li>
               </ul>
               Show
               <ul>
@@ -298,7 +298,7 @@ export const sessions: Sessions = {
             </div>,
           code: [
             'example {A B C : Prop}',
-            '    (h1 : A∧B∧C)',
+            '    (h1 : (A∧B)∧C)',
             '  : A∧(B∧C) := show A∧(B∧C), from',
             '    sorry',
             '',
@@ -439,7 +439,7 @@ export const sessions: Sessions = {
               Given
               <ul>
                 <li>A→B</li>
-                <li>A→B→C</li>
+                <li>A→(B→C)</li>
               </ul>
               Show
               <ul>
@@ -449,7 +449,7 @@ export const sessions: Sessions = {
           code: [
             'example {A B C : Prop}',
             '    (h1 : A→B)',
-            '    (h2 : A→B→C)',
+            '    (h2 : A→(B→C))',
             '  : A→C := show A→C, from',
             '    sorry',
             '',
@@ -550,13 +550,13 @@ export const sessions: Sessions = {
               </ul>
               Show
               <ul>
-                <li>A→B→C</li>
+                <li>A→(B→C)</li>
               </ul>
             </div>,
           code: [
             'example {A B C : Prop}',
             '    (h1 : (A∧B)→C)',
-            '  : A→B→C := show A→B→C, from',
+            '  : A→(B→C) := show A→(B→C), from',
             '    sorry',
             '',
           ],
@@ -567,7 +567,7 @@ export const sessions: Sessions = {
               <h3>Excercise 2.12</h3>
               Given
               <ul>
-                <li>A→B→C</li>
+                <li>A→(B→C)</li>
               </ul>
               Show
               <ul>
@@ -576,7 +576,7 @@ export const sessions: Sessions = {
             </div>,
           code: [
             'example {A B C : Prop}',
-            '    (h1 : A→B→C)',
+            '    (h1 : A→(B→C))',
             '  : (A∧B)→C := show (A∧B)→C, from',
             '    sorry',
             '',

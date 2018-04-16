@@ -13,6 +13,7 @@ interface LeanEditorProps {
   file: string;
   initialValue: string;
   onValueChange?: (value: string) => void;
+  buttons: string[];
 }
 
 interface LeanEditorState {
@@ -107,9 +108,16 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
   updateDimensions() {
     this.determineSplit();
   }
+
   determineSplit() {
     const node = findDOMNode(this.refs.root) as HTMLElement;
     this.setState({split: node.clientHeight > node.clientWidth ? 'horizontal' : 'vertical'});
+  }
+
+  textButtonClicked(buttonText: string) {
+    return (() => {
+      this.editor.trigger('keyboard', 'type', {text: buttonText});
+    }).bind(this);
   }
 
   render() {
@@ -120,6 +128,17 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
     return (
       <div className='leanEditor'>
         <div style={{marginLeft: '1ex'}}>
+          {
+            this.props.buttons.map((buttonText) => {
+              return (
+                <span>
+                  <button type='button' className='btn' onClick={this.textButtonClicked(buttonText)}>
+                    {buttonText}
+                  </button>&nbsp;
+                </span>
+              );
+            })
+          }
           <button type='button' className='btn btn-danger' onClick={this.reset} >Reset</button>
         </div>
         <div style={{height: containerHeight, width: '100%', position: 'relative'}} ref='root'>

@@ -7,6 +7,7 @@ export class Exercise {
 
 export class Session {
   title: JSX.Element;
+  buttons: string[];
   exercises: Exercise[];
 }
 
@@ -20,6 +21,7 @@ export const sessions: Sessions = {
   sessions: [
     {
       title: <h2>Session 1</h2>,
+      buttons: ['and.intro', 'and.left', 'and.right'],
       exercises: [
         {
           html:
@@ -308,6 +310,7 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 2</h2>,
+      buttons: ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
       exercises: [
         {
           html:
@@ -607,6 +610,7 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 3</h2>,
+      buttons: ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
       exercises: [
         {
           html:
@@ -866,6 +870,7 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 4</h2>,
+      buttons: ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
       exercises: [
         {
           html:
@@ -1184,6 +1189,7 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 5</h2>,
+      buttons: ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
       exercises: [
         {
           html:

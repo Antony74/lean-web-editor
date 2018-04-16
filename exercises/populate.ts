@@ -14,6 +14,14 @@ class Session {
     tasks: Task[];
 }
 
+const buttons: string[][] = [
+    ['and.intro', 'and.left', 'and.right'],
+    ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
+    ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
+    ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
+    ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
+];
+
 const yamlString = fs.readFileSync(__dirname + '/sessions.yaml', 'utf-8');
 
 const allSessions: Session[] = safeLoad(yamlString);
@@ -30,6 +38,7 @@ tsxLines.push('}');
 tsxLines.push('');
 tsxLines.push('export class Session {');
 tsxLines.push('  title: JSX.Element;');
+tsxLines.push('  buttons: string[];');
 tsxLines.push('  exercises: Exercise[];');
 tsxLines.push('}');
 tsxLines.push('');
@@ -47,6 +56,7 @@ sessions.forEach((session: Session, sessionIndex: number) => {
 
     tsxLines.push('    {');
     tsxLines.push('      title: <h2>Session ' + (sessionIndex + 1) + '</h2>,');
+    tsxLines.push("      buttons: ['" + buttons[sessionIndex].join("', '") + "'],");
     tsxLines.push('      exercises: [');
 
     session.tasks.forEach((task: Task, taskIndex: number) => {

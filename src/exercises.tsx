@@ -26,7 +26,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.1</h3>
+              <h3><a href='/#1.1'>Excercise 1.1</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -47,7 +47,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.2</h3>
+              <h3><a href='/#1.2'>Excercise 1.2</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -70,7 +70,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.3</h3>
+              <h3><a href='/#1.3'>Excercise 1.3</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -100,7 +100,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.4</h3>
+              <h3><a href='/#1.4'>Excercise 1.4</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -123,7 +123,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.5</h3>
+              <h3><a href='/#1.5'>Excercise 1.5</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -144,7 +144,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.6</h3>
+              <h3><a href='/#1.6'>Excercise 1.6</a></h3>
               Given
               <ul>
                 <li>A∧B</li>
@@ -165,7 +165,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.7</h3>
+              <h3><a href='/#1.7'>Excercise 1.7</a></h3>
               Given
               <ul>
                 <li>A∧B</li>
@@ -192,7 +192,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.8</h3>
+              <h3><a href='/#1.8'>Excercise 1.8</a></h3>
               Given
               <ul>
                 <li>A∧B</li>
@@ -213,7 +213,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.9</h3>
+              <h3><a href='/#1.9'>Excercise 1.9</a></h3>
               Given
               <ul>
                 <li>A∧B</li>
@@ -234,7 +234,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.10</h3>
+              <h3><a href='/#1.10'>Excercise 1.10</a></h3>
               Given
               <ul>
                 <li>(A∧B)∧C</li>
@@ -267,7 +267,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.11</h3>
+              <h3><a href='/#1.11'>Excercise 1.11</a></h3>
               Given
               <ul>
                 <li>(A∧B)∧C</li>
@@ -288,7 +288,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 1.12</h3>
+              <h3><a href='/#1.12'>Excercise 1.12</a></h3>
               Given
               <ul>
                 <li>(A∧B)∧C</li>
@@ -315,7 +315,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.1</h3>
+              <h3><a href='/#2.1'>Excercise 2.1</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -338,7 +338,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.2</h3>
+              <h3><a href='/#2.2'>Excercise 2.2</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -363,7 +363,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.3</h3>
+              <h3><a href='/#2.3'>Excercise 2.3</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -392,7 +392,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.4</h3>
+              <h3><a href='/#2.4'>Excercise 2.4</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -415,7 +415,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.5</h3>
+              <h3><a href='/#2.5'>Excercise 2.5</a></h3>
               Given
               <ul>
                 <li>A→B</li>
@@ -438,7 +438,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.6</h3>
+              <h3><a href='/#2.6'>Excercise 2.6</a></h3>
               Given
               <ul>
                 <li>A→B</li>
@@ -461,7 +461,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.7</h3>
+              <h3><a href='/#2.7'>Excercise 2.7</a></h3>
               Show
               <ul>
                 <li>A→A</li>
@@ -477,7 +477,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.8</h3>
+              <h3><a href='/#2.8'>Excercise 2.8</a></h3>
               Given
               <ul>
                 <li>A→C</li>
@@ -502,7 +502,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.9</h3>
+              <h3><a href='/#2.9'>Excercise 2.9</a></h3>
               Given
               <ul>
                 <li>A→C</li>
@@ -525,7 +525,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.10</h3>
+              <h3><a href='/#2.10'>Excercise 2.10</a></h3>
               Given
               <ul>
                 <li>B</li>
@@ -546,7 +546,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.11</h3>
+              <h3><a href='/#2.11'>Excercise 2.11</a></h3>
               Given
               <ul>
                 <li>(A∧B)→C</li>
@@ -567,7 +567,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.12</h3>
+              <h3><a href='/#2.12'>Excercise 2.12</a></h3>
               Given
               <ul>
                 <li>A→(B→C)</li>
@@ -588,7 +588,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 2.13</h3>
+              <h3><a href='/#2.13'>Excercise 2.13</a></h3>
               Given
               <ul>
                 <li>(A→B)∧(A→C)</li>
@@ -615,7 +615,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.1</h3>
+              <h3><a href='/#3.1'>Excercise 3.1</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -638,7 +638,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.2</h3>
+              <h3><a href='/#3.2'>Excercise 3.2</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -659,7 +659,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.3</h3>
+              <h3><a href='/#3.3'>Excercise 3.3</a></h3>
               Given
               <ul>
                 <li>B</li>
@@ -680,7 +680,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.4</h3>
+              <h3><a href='/#3.4'>Excercise 3.4</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -701,7 +701,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.5</h3>
+              <h3><a href='/#3.5'>Excercise 3.5</a></h3>
               Given
               <ul>
                 <li>A∨B</li>
@@ -722,7 +722,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.6</h3>
+              <h3><a href='/#3.6'>Excercise 3.6</a></h3>
               Given
               <ul>
                 <li>A∨(B∨C)</li>
@@ -743,7 +743,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.7</h3>
+              <h3><a href='/#3.7'>Excercise 3.7</a></h3>
               Given
               <ul>
                 <li>A∧B</li>
@@ -764,7 +764,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.8</h3>
+              <h3><a href='/#3.8'>Excercise 3.8</a></h3>
               Given
               <ul>
                 <li>(A∧B)∨C</li>
@@ -785,7 +785,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.9</h3>
+              <h3><a href='/#3.9'>Excercise 3.9</a></h3>
               Given
               <ul>
                 <li>(A∨B)∧C</li>
@@ -806,7 +806,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.10</h3>
+              <h3><a href='/#3.10'>Excercise 3.10</a></h3>
               Given
               <ul>
                 <li>(A→C)∧(B→C)</li>
@@ -827,7 +827,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.11</h3>
+              <h3><a href='/#3.11'>Excercise 3.11</a></h3>
               Given
               <ul>
                 <li>(A∨B)→C</li>
@@ -848,7 +848,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 3.12</h3>
+              <h3><a href='/#3.12'>Excercise 3.12</a></h3>
               Given
               <ul>
                 <li>(A→B)∨(A→C)</li>
@@ -875,7 +875,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.1</h3>
+              <h3><a href='/#4.1'>Excercise 4.1</a></h3>
               Given
               <ul>
                 <li>⊥</li>
@@ -896,7 +896,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.2</h3>
+              <h3><a href='/#4.2'>Excercise 4.2</a></h3>
               Given
               <ul>
                 <li>⊥</li>
@@ -923,7 +923,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.3</h3>
+              <h3><a href='/#4.3'>Excercise 4.3</a></h3>
               Given
               <ul>
                 <li>A</li>
@@ -944,7 +944,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.4</h3>
+              <h3><a href='/#4.4'>Excercise 4.4</a></h3>
               Given
               <ul>
                 <li>⊥∨A</li>
@@ -965,7 +965,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.5</h3>
+              <h3><a href='/#4.5'>Excercise 4.5</a></h3>
               Given
               <ul>
                 <li>⊥∧A</li>
@@ -986,7 +986,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.6</h3>
+              <h3><a href='/#4.6'>Excercise 4.6</a></h3>
               Show
               <ul>
                 <li>⊥→A</li>
@@ -1002,7 +1002,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.7</h3>
+              <h3><a href='/#4.7'>Excercise 4.7</a></h3>
               Given
               <ul>
                 <li>A→B</li>
@@ -1023,7 +1023,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.8</h3>
+              <h3><a href='/#4.8'>Excercise 4.8</a></h3>
               Given
               <ul>
                 <li>(A∨B)→⊥</li>
@@ -1044,7 +1044,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.9</h3>
+              <h3><a href='/#4.9'>Excercise 4.9</a></h3>
               Given
               <ul>
                 <li>(A→⊥)∧(B→⊥)</li>
@@ -1065,7 +1065,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.10</h3>
+              <h3><a href='/#4.10'>Excercise 4.10</a></h3>
               Given
               <ul>
                 <li>(A→⊥)∨(B→⊥)</li>
@@ -1086,7 +1086,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.11</h3>
+              <h3><a href='/#4.11'>Excercise 4.11</a></h3>
               Given
               <ul>
                 <li>(((A→⊥)→⊥)→⊥)</li>
@@ -1107,7 +1107,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.12</h3>
+              <h3><a href='/#4.12'>Excercise 4.12</a></h3>
               Given
               <ul>
                 <li>(A→⊥)∨B</li>
@@ -1128,7 +1128,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.13</h3>
+              <h3><a href='/#4.13'>Excercise 4.13</a></h3>
               Given
               <ul>
                 <li>A→⊥</li>
@@ -1151,7 +1151,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.14</h3>
+              <h3><a href='/#4.14'>Excercise 4.14</a></h3>
               Given
               <ul>
                 <li>(A→⊥)∨(B→⊥)∨(C→⊥)</li>
@@ -1172,7 +1172,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 4.15</h3>
+              <h3><a href='/#4.15'>Excercise 4.15</a></h3>
               Show
               <ul>
                 <li>((A∨(A→⊥))→⊥)→⊥</li>
@@ -1194,7 +1194,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 5.1</h3>
+              <h3><a href='/#5.1'>Excercise 5.1</a></h3>
               Show
               <ul>
                 <li>A∨(A→⊥)</li>
@@ -1210,7 +1210,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 5.2</h3>
+              <h3><a href='/#5.2'>Excercise 5.2</a></h3>
               Given
               <ul>
                 <li>(B→⊥)→(A→⊥)</li>
@@ -1231,7 +1231,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 5.3</h3>
+              <h3><a href='/#5.3'>Excercise 5.3</a></h3>
               Given
               <ul>
                 <li>(A∧B)→⊥</li>
@@ -1252,7 +1252,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 5.4</h3>
+              <h3><a href='/#5.4'>Excercise 5.4</a></h3>
               Given
               <ul>
                 <li>((A→⊥)→⊥)</li>
@@ -1273,7 +1273,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 5.5</h3>
+              <h3><a href='/#5.5'>Excercise 5.5</a></h3>
               Given
               <ul>
                 <li>A→B</li>
@@ -1294,7 +1294,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 5.6</h3>
+              <h3><a href='/#5.6'>Excercise 5.6</a></h3>
               Given
               <ul>
                 <li>A→B</li>
@@ -1317,7 +1317,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 5.7</h3>
+              <h3><a href='/#5.7'>Excercise 5.7</a></h3>
               Show
               <ul>
                 <li>((A→B)→A)→A</li>
@@ -1333,7 +1333,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 5.8</h3>
+              <h3><a href='/#5.8'>Excercise 5.8</a></h3>
               Given
               <ul>
                 <li>(A∧B∧C)→⊥</li>
@@ -1354,7 +1354,7 @@ export const sessions: Sessions = {
         {
           html:
             <div>
-              <h3>Excercise 5.9</h3>
+              <h3><a href='/#5.9'>Excercise 5.9</a></h3>
               Given
               <ul>
                 <li>(A→B)→⊥</li>

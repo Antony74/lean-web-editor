@@ -86,8 +86,8 @@ function getHtml(task: Task, sessionIndex: number, taskIndex: number) {
     const htmlLines: string[] = [];
 
     htmlLines.push('<div>');
-    const exerciseNumber = [sessionIndex + 1, taskIndex + 1].join('.');
-    htmlLines.push('  <h3>Excercise ' + exerciseNumber + '</h3>');
+    const exerciseNumber: string = [sessionIndex + 1, taskIndex + 1].join('.');
+    htmlLines.push("  <h3><a href='/#" + exerciseNumber + "'>Excercise " + exerciseNumber + '</a></h3>');
     console.log(exerciseNumber);
 
     if (task.assumptions && task.assumptions.length) {

@@ -130,21 +130,22 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
       <div className='leanEditor'>
         <div style={{marginLeft: '1ex'}}>
           {
-            this.props.buttons.map((button: string | string[]) => {
+            this.props.buttons.map((button: string | string[], index: number) => {
 
               const buttonArray: string[] = button as string[];
 
               if (Array.isArray(button)) {
                 return (
-                  <span>
+                  <span key={index}>
                     <div className='btn-group' role='group'>
                       {
-                        buttonArray.map((buttonText: string) => {
+                        buttonArray.map((buttonText: string, subIndex: number) => {
                           return (
                             <button
                               type='button'
                               className='btn btn-secondary'
-                              onClick={this.textButtonClicked(buttonText)}>
+                              onClick={this.textButtonClicked(buttonText)}
+                              key={subIndex}>
                                 {buttonText}
                             </button>
                           );
@@ -159,7 +160,7 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
                 const buttonText: string = button as string;
 
                 return (
-                  <span>
+                  <span key={index}>
                     <button type='button' className='btn btn-secondary' onClick={this.textButtonClicked(buttonText)}>
                       {buttonText}
                     </button>&nbsp;

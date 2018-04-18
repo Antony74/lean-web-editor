@@ -13,7 +13,7 @@ interface LeanEditorProps {
   file: string;
   initialValue: string;
   onValueChange?: (value: string) => void;
-  buttons: string[];
+  buttons: Array<string | string[] >;
 }
 
 interface LeanEditorState {
@@ -130,14 +130,42 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
       <div className='leanEditor'>
         <div style={{marginLeft: '1ex'}}>
           {
-            this.props.buttons.map((buttonText) => {
-              return (
-                <span>
-                  <button type='button' className='btn' onClick={this.textButtonClicked(buttonText)}>
-                    {buttonText}
-                  </button>&nbsp;
-                </span>
-              );
+            this.props.buttons.map((button: string | string[]) => {
+
+              const buttonArray: string[] = button as string[];
+
+              if (Array.isArray(button)) {
+                return (
+                  <span>
+                    <div className='btn-group' role='group'>
+                      {
+                        buttonArray.map((buttonText: string) => {
+                          return (
+                            <button
+                              type='button'
+                              className='btn btn-secondary'
+                              onClick={this.textButtonClicked(buttonText)}>
+                                {buttonText}
+                            </button>
+                          );
+                        })
+                      }
+                    </div>&nbsp;
+                  </span>
+                );
+
+              } else {
+
+                const buttonText: string = button as string;
+
+                return (
+                  <span>
+                    <button type='button' className='btn btn-secondary' onClick={this.textButtonClicked(buttonText)}>
+                      {buttonText}
+                    </button>&nbsp;
+                  </span>
+                );
+              }
             })
           }
           <button type='button' className='btn btn-danger' onClick={this.reset} >Reset</button>

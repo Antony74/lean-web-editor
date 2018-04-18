@@ -7,7 +7,7 @@ export class Exercise {
 
 export class Session {
   title: JSX.Element;
-  buttons: string[];
+  buttons: Array<string | string[] >;
   exercises: Exercise[];
 }
 
@@ -21,7 +21,11 @@ export const sessions: Sessions = {
   sessions: [
     {
       title: <h2>Session 1</h2>,
-      buttons: ['and.intro', 'and.left', 'and.right'],
+      buttons: [
+        'and.intro',
+        'and.left',
+        'and.right',
+      ],
       exercises: [
         {
           html:
@@ -310,7 +314,18 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 2</h2>,
-      buttons: ['∧', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show'],
+      buttons: [
+        '∧',
+        '→',
+        'and.intro',
+        'and.left',
+        'and.right',
+        [
+          'assume',
+          'show',
+          'from',
+        ],
+      ],
       exercises: [
         {
           html:
@@ -610,7 +625,22 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 3</h2>,
-      buttons: ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
+      buttons: [
+        '∧',
+        '∨',
+        '→',
+        'and.intro',
+        'and.left',
+        'and.right',
+        [
+          'assume',
+          'show',
+          'from',
+        ],
+        'or.inl',
+        'or.inr',
+        'or.elim',
+      ],
       exercises: [
         {
           html:
@@ -870,7 +900,23 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 4</h2>,
-      buttons: ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
+      buttons: [
+        '∧',
+        '∨',
+        '→',
+        'and.intro',
+        'and.left',
+        'and.right',
+        [
+          'assume',
+          'show',
+          'from',
+        ],
+        'or.inl',
+        'or.inr',
+        'or.elim',
+        'false.elim',
+      ],
       exercises: [
         {
           html:
@@ -1189,7 +1235,23 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 5</h2>,
-      buttons: ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
+      buttons: [
+        '∧',
+        '∨',
+        '→',
+        'and.intro',
+        'and.left',
+        'and.right',
+        [
+          'assume',
+          'show',
+          'from',
+        ],
+        'or.inl',
+        'or.inr',
+        'or.elim',
+        'false.elim',
+      ],
       exercises: [
         {
           html:

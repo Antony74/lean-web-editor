@@ -14,12 +14,57 @@ class Session {
     tasks: Task[];
 }
 
-const buttons: string[][] = [
-    ['and.intro', 'and.left', 'and.right'],
-    ['∧', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show'],
-    ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
-    ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
-    ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
+const buttons: Array<Array<string | string[] > > = [
+    [ // Buttons for session 1
+        'and.intro',
+        'and.left',
+        'and.right',
+    ],
+    [ // Buttons for session 2
+        '∧',
+        '→',
+        'and.intro',
+        'and.left',
+        'and.right',
+        ['assume', 'show', 'from'],
+    ],
+    [ // Buttons for session 3
+        '∧',
+        '∨',
+        '→',
+        'and.intro',
+        'and.left',
+        'and.right',
+        ['assume', 'show', 'from'],
+        'or.inl',
+        'or.inr',
+        'or.elim',
+    ],
+    [ // Buttons for session 4
+        '∧',
+        '∨',
+        '→',
+        'and.intro',
+        'and.left',
+        'and.right',
+        ['assume', 'show', 'from'],
+        'or.inl',
+        'or.inr',
+        'or.elim',
+        'false.elim'],
+    [ // Buttons for session 5
+        '∧',
+        '∨',
+        '→',
+        'and.intro',
+        'and.left',
+        'and.right',
+        ['assume', 'show', 'from'],
+        'or.inl',
+        'or.inr',
+        'or.elim',
+        'false.elim',
+    ],
 ];
 
 const yamlString = fs.readFileSync(__dirname + '/sessions.yaml', 'utf-8');
@@ -38,7 +83,7 @@ tsxLines.push('}');
 tsxLines.push('');
 tsxLines.push('export class Session {');
 tsxLines.push('  title: JSX.Element;');
-tsxLines.push('  buttons: string[];');
+tsxLines.push('  buttons: Array<string | string[] >;');
 tsxLines.push('  exercises: Exercise[];');
 tsxLines.push('}');
 tsxLines.push('');
@@ -54,9 +99,24 @@ tsxLines.push('  sessions: [');
 
 sessions.forEach((session: Session, sessionIndex: number) => {
 
+    let arrayText: string = JSON.stringify(buttons[sessionIndex], null, 2);
+    arrayText = arrayText.replace(/"/g, "'");
+    arrayText = arrayText.split('\n')
+                         .map((s: string, index: number): string => index ? '      ' + s : s)
+                         .map((s: string): string => {
+                            const trimmed: string = s.trim();
+                            if (trimmed === '['
+                            ||  trimmed.length === 0
+                            ||  trimmed[trimmed.length - 1] === ',') {
+                                return s;
+                            } else {
+                                return s + ',';
+                            }
+                         }).join('\n');
+
     tsxLines.push('    {');
     tsxLines.push('      title: <h2>Session ' + (sessionIndex + 1) + '</h2>,');
-    tsxLines.push("      buttons: ['" + buttons[sessionIndex].join("', '") + "'],");
+    tsxLines.push('      buttons: ' + arrayText);
     tsxLines.push('      exercises: [');
 
     session.tasks.forEach((task: Task, taskIndex: number) => {

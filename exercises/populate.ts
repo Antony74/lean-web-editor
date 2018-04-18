@@ -16,10 +16,10 @@ class Session {
 
 const buttons: string[][] = [
     ['and.intro', 'and.left', 'and.right'],
-    ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
-    ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
-    ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
-    ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
+    ['∧', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show'],
+    ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
+    ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
+    ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
 ];
 
 const yamlString = fs.readFileSync(__dirname + '/sessions.yaml', 'utf-8');
@@ -153,7 +153,7 @@ function getCode(task: Task) {
 
             task.assumptions.forEach((assumption: string) => {
                 let varName: string = '';
-                if (assumption.length === 1) {
+                if (assumption.length === 1 && assumption[0] >= 'A' && assumption[0] <= 'Z') {
                     varName = 'h' + assumption.toLowerCase();
                 } else {
                     ++index;

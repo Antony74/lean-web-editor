@@ -310,7 +310,7 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 2</h2>,
-      buttons: ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
+      buttons: ['∧', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show'],
       exercises: [
         {
           html:
@@ -610,7 +610,7 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 3</h2>,
-      buttons: ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
+      buttons: ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
       exercises: [
         {
           html:
@@ -870,7 +870,7 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 4</h2>,
-      buttons: ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
+      buttons: ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
       exercises: [
         {
           html:
@@ -887,7 +887,7 @@ export const sessions: Sessions = {
             </div>,
           code: [
             'example {A : Prop}',
-            '    (h⊥ : false)',
+            '    (h1 : false)',
             '  : A := show A, from',
             '    sorry',
             '',
@@ -909,12 +909,12 @@ export const sessions: Sessions = {
             </div>,
           code: [
             'example {A : Prop}',
-            '    (h⊥ : false)',
+            '    (h1 : false)',
             '  : A := show A, from',
             '    sorry',
             '',
             'example {B : Prop}',
-            '    (h⊥ : false)',
+            '    (h1 : false)',
             '  : B := show B, from',
             '    sorry',
             '',
@@ -1189,7 +1189,7 @@ export const sessions: Sessions = {
     },
     {
       title: <h2>Session 5</h2>,
-      buttons: ['and.intro', 'and.left', 'and.right', 'assume', 'show'],
+      buttons: ['∧', '∨', '→', 'and.intro', 'and.left', 'and.right', 'assume', 'show', 'or.inl', 'or.inr', 'or.elim'],
       exercises: [
         {
           html:

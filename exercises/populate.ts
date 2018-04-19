@@ -51,18 +51,6 @@ const buttons: Array<Array<string | string[] > > = [
         'or.inl',
         'or.inr',
         'or.elim',
-        'false.elim'],
-    [ // Buttons for session 5
-        '∧',
-        '∨',
-        '→',
-        'and.intro',
-        'and.left',
-        'and.right',
-        ['assume', 'show', 'from'],
-        'or.inl',
-        'or.inr',
-        'or.elim',
         'false.elim',
     ],
 ];
@@ -70,7 +58,7 @@ const buttons: Array<Array<string | string[] > > = [
 const yamlString = fs.readFileSync(__dirname + '/sessions.yaml', 'utf-8');
 
 const allSessions: Session[] = safeLoad(yamlString);
-const sessions = allSessions.slice(0, 5); // Just take the sessions on proposistional logic
+const sessions = allSessions.slice(0, 4); // Just take the sessions on proposistional logic
 
 const tsxLines: string[] = [];
 

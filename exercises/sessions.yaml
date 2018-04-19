@@ -184,8 +184,8 @@
   - assumptions: ["A→⊥", "B→A"]
     conclusions: ["B→⊥"]
     min-blocks: 6
-  - assumptions: ["(A→⊥)∨(B→⊥)∨(C→⊥)"]
-    conclusions: ["(A∧B∧C)→⊥"]
+  - assumptions: ["((A→⊥)∨(B→⊥))∨(C→⊥)"]
+    conclusions: ["((A∧B)∧C)→⊥"]
     min-blocks: 10
   - assumptions: []
     conclusions: ["((A∨(A→⊥))→⊥)→⊥"]

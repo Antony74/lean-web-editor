@@ -1200,17 +1200,17 @@ export const sessions: Sessions = {
               <h3><a href='/#4.14'>Excercise 4.14</a></h3>
               Given
               <ul>
-                <li>(A→⊥)∨(B→⊥)∨(C→⊥)</li>
+                <li>((A→⊥)∨(B→⊥))∨(C→⊥)</li>
               </ul>
               Show
               <ul>
-                <li>(A∧B∧C)→⊥</li>
+                <li>((A∧B)∧C)→⊥</li>
               </ul>
             </div>,
           code: [
             'example {A B C : Prop}',
-            '    (h1 : (A→false)∨(B→false)∨(C→false))',
-            '  : (A∧B∧C)→false := show (A∧B∧C)→false, from',
+            '    (h1 : ((A→false)∨(B→false))∨(C→false))',
+            '  : ((A∧B)∧C)→false := show ((A∧B)∧C)→false, from',
             '    sorry',
             '',
           ],
@@ -1227,209 +1227,6 @@ export const sessions: Sessions = {
           code: [
             'example {A : Prop}',
             '  : ((A∨(A→false))→false)→false := show ((A∨(A→false))→false)→false, from',
-            '    sorry',
-            '',
-          ],
-        },
-      ],
-    },
-    {
-      title: <h2>Session 5</h2>,
-      buttons: [
-        '∧',
-        '∨',
-        '→',
-        'and.intro',
-        'and.left',
-        'and.right',
-        [
-          'assume',
-          'show',
-          'from',
-        ],
-        'or.inl',
-        'or.inr',
-        'or.elim',
-        'false.elim',
-      ],
-      exercises: [
-        {
-          html:
-            <div>
-              <h3><a href='/#5.1'>Excercise 5.1</a></h3>
-              Show
-              <ul>
-                <li>A∨(A→⊥)</li>
-              </ul>
-            </div>,
-          code: [
-            'example {A : Prop}',
-            '  : A∨(A→false) := show A∨(A→false), from',
-            '    sorry',
-            '',
-          ],
-        },
-        {
-          html:
-            <div>
-              <h3><a href='/#5.2'>Excercise 5.2</a></h3>
-              Given
-              <ul>
-                <li>(B→⊥)→(A→⊥)</li>
-              </ul>
-              Show
-              <ul>
-                <li>A→B</li>
-              </ul>
-            </div>,
-          code: [
-            'example {A B : Prop}',
-            '    (h1 : (B→false)→(A→false))',
-            '  : A→B := show A→B, from',
-            '    sorry',
-            '',
-          ],
-        },
-        {
-          html:
-            <div>
-              <h3><a href='/#5.3'>Excercise 5.3</a></h3>
-              Given
-              <ul>
-                <li>(A∧B)→⊥</li>
-              </ul>
-              Show
-              <ul>
-                <li>(A→⊥)∨(B→⊥)</li>
-              </ul>
-            </div>,
-          code: [
-            'example {A B : Prop}',
-            '    (h1 : (A∧B)→false)',
-            '  : (A→false)∨(B→false) := show (A→false)∨(B→false), from',
-            '    sorry',
-            '',
-          ],
-        },
-        {
-          html:
-            <div>
-              <h3><a href='/#5.4'>Excercise 5.4</a></h3>
-              Given
-              <ul>
-                <li>((A→⊥)→⊥)</li>
-              </ul>
-              Show
-              <ul>
-                <li>A</li>
-              </ul>
-            </div>,
-          code: [
-            'example {A : Prop}',
-            '    (h1 : ((A→false)→false))',
-            '  : A := show A, from',
-            '    sorry',
-            '',
-          ],
-        },
-        {
-          html:
-            <div>
-              <h3><a href='/#5.5'>Excercise 5.5</a></h3>
-              Given
-              <ul>
-                <li>A→B</li>
-              </ul>
-              Show
-              <ul>
-                <li>(A→⊥)∨B</li>
-              </ul>
-            </div>,
-          code: [
-            'example {A B : Prop}',
-            '    (h1 : A→B)',
-            '  : (A→false)∨B := show (A→false)∨B, from',
-            '    sorry',
-            '',
-          ],
-        },
-        {
-          html:
-            <div>
-              <h3><a href='/#5.6'>Excercise 5.6</a></h3>
-              Given
-              <ul>
-                <li>A→B</li>
-                <li>B→C</li>
-              </ul>
-              Show
-              <ul>
-                <li>(A→⊥)∨C</li>
-              </ul>
-            </div>,
-          code: [
-            'example {A B C : Prop}',
-            '    (h1 : A→B)',
-            '    (h2 : B→C)',
-            '  : (A→false)∨C := show (A→false)∨C, from',
-            '    sorry',
-            '',
-          ],
-        },
-        {
-          html:
-            <div>
-              <h3><a href='/#5.7'>Excercise 5.7</a></h3>
-              Show
-              <ul>
-                <li>((A→B)→A)→A</li>
-              </ul>
-            </div>,
-          code: [
-            'example {A B : Prop}',
-            '  : ((A→B)→A)→A := show ((A→B)→A)→A, from',
-            '    sorry',
-            '',
-          ],
-        },
-        {
-          html:
-            <div>
-              <h3><a href='/#5.8'>Excercise 5.8</a></h3>
-              Given
-              <ul>
-                <li>(A∧B∧C)→⊥</li>
-              </ul>
-              Show
-              <ul>
-                <li>(A→⊥)∨(B→⊥)∨(C→⊥)</li>
-              </ul>
-            </div>,
-          code: [
-            'example {A B C : Prop}',
-            '    (h1 : (A∧B∧C)→false)',
-            '  : (A→false)∨(B→false)∨(C→false) := show (A→false)∨(B→false)∨(C→false), from',
-            '    sorry',
-            '',
-          ],
-        },
-        {
-          html:
-            <div>
-              <h3><a href='/#5.9'>Excercise 5.9</a></h3>
-              Given
-              <ul>
-                <li>(A→B)→⊥</li>
-              </ul>
-              Show
-              <ul>
-                <li>A∧(B→⊥)</li>
-              </ul>
-            </div>,
-          code: [
-            'example {A B : Prop}',
-            '    (h1 : (A→B)→false)',
-            '  : A∧(B→false) := show A∧(B→false), from',
             '    sorry',
             '',
           ],

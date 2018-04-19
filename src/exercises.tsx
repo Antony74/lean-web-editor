@@ -17,7 +17,30 @@ export class Sessions {
 }
 
 export const sessions: Sessions = {
-  title: <h1 style={{textAlign: 'center'}}>Propositional Logic in Lean</h1>,
+  title:
+    <div style={{textAlign: 'center', paddingLeft: '25%', paddingRight: '25%'}}>
+      <h1>Propositional Logic in Lean</h1>
+      <p>
+        The knowledge needed to complete these exercises can be found in Logic and Proof,&nbsp;
+        <a href='https://leanprover.github.io/logic_and_proof/propositional_logic_in_lean.html'>
+          Chapter 4 - Propositional Logic in Lean
+        </a> (and it might help to read the previous chapters first).
+      </p>
+      <p>
+        The exercises are taken from <a
+        href='http://incredible.pm'>The Incredible Proof Machine</a> (under <a
+        href='https://github.com/nomeata/incredible/blob/master/LICENSE'>license</a>).
+        You might find it easier, more fun, and addictive to do each exercise on The
+        Incredible Proof Machine first, and you can still learn Lean by porting your
+        proofs across.
+      </p>
+      <p>
+        Create you own exercises by forking the <a
+        href='https://github.com/Antony74/lean-web-editor/tree/exercises'>repository</a>  on
+        GitHub then editing <a
+        href='https://github.com/Antony74/lean-web-editor/blob/exercises/src/exercises.tsx'>exercises.tsx</a>.
+      </p>
+    </div>,
   sessions: [
     {
       title: <h2>Session 1</h2>,

@@ -31,13 +31,13 @@
   - assumptions: ["A∧B"]
     conclusions: ["B∧A"]
     min-blocks: 4
-  - assumptions: ["A∧B∧C"]
+  - assumptions: ["(A∧B)∧C"]
     conclusions: ["A","B","C"]
     min-blocks: 6
-  - assumptions: ["A∧B∧C"]
+  - assumptions: ["(A∧B)∧C"]
     conclusions: ["A∧C"]
     min-blocks: 5
-  - assumptions: ["A∧B∧C"]
+  - assumptions: ["(A∧B)∧C"]
     conclusions: ["A∧(B∧C)"]
     min-blocks: 6
 - name: Session 2
@@ -63,7 +63,7 @@
   - assumptions: ["A→B","B→C"]
     conclusions: ["A→C"]
     min-blocks: 6
-  - assumptions: ["A→B","A→B→C"]
+  - assumptions: ["A→B","A→(B→C)"]
     conclusions: ["A→C"]
     min-blocks: 7
   - assumptions: []
@@ -79,9 +79,9 @@
     conclusions: ["A→B"]
     min-blocks: 3
   - assumptions: ["(A∧B)→C"]
-    conclusions: ["A→B→C"]
+    conclusions: ["A→(B→C)"]
     min-blocks: 6
-  - assumptions: ["A→B→C"]
+  - assumptions: ["A→(B→C)"]
     conclusions: ["(A∧B)→C"]
     min-blocks: 6
   - assumptions: ["(A→B)∧(A→C)"]
@@ -184,8 +184,8 @@
   - assumptions: ["A→⊥", "B→A"]
     conclusions: ["B→⊥"]
     min-blocks: 6
-  - assumptions: ["(A→⊥)∨(B→⊥)∨(C→⊥)"]
-    conclusions: ["(A∧B∧C)→⊥"]
+  - assumptions: ["((A→⊥)∨(B→⊥))∨(C→⊥)"]
+    conclusions: ["((A∧B)∧C)→⊥"]
     min-blocks: 10
   - assumptions: []
     conclusions: ["((A∨(A→⊥))→⊥)→⊥"]

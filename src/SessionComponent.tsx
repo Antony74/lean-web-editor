@@ -88,7 +88,7 @@ export class SessionComponent extends React.Component<RouteComponentProps<Sessio
             return (
               <div key={filename} id={idName}>
                 {exercise.html}
-                <LeanEditor file={exFile} initialValue={code} />
+                <LeanEditor file={exFile} initialValue={code} buttons={session.buttons} />
                 <br/>
               </div>
             );

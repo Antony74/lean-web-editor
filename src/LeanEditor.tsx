@@ -143,7 +143,7 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
                           return (
                             <button
                               type='button'
-                              className='btn btn-secondary'
+                              className='btn btn-outline-secondary'
                               onClick={this.textButtonClicked(buttonText)}
                               key={subIndex}>
                                 {buttonText}
@@ -161,7 +161,9 @@ export class LeanEditor extends React.Component<LeanEditorProps, LeanEditorState
 
                 return (
                   <span key={index}>
-                    <button type='button' className='btn btn-secondary' onClick={this.textButtonClicked(buttonText)}>
+                    <button type='button'
+                        className='btn btn-outline-secondary'
+                        onClick={this.textButtonClicked(buttonText)}>
                       {buttonText}
                     </button>&nbsp;
                   </span>

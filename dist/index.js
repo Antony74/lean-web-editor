@@ -11011,7 +11011,7 @@ var Sessions = function Sessions() {
 
 exports.Sessions = Sessions;
 exports.sessions = {
-    title: React.createElement("h1", { style: { textAlign: 'center' } }, "Propositional Logic in Lean"),
+    title: React.createElement("div", { style: { textAlign: 'center', paddingLeft: '25%', paddingRight: '25%' } }, React.createElement("h1", null, "Propositional Logic in Lean"), React.createElement("p", null, "The knowledge needed to complete these exercises can be found in Logic and Proof,\xA0", React.createElement("a", { href: 'https://leanprover.github.io/logic_and_proof/propositional_logic_in_lean.html' }, "Chapter 4 - Propositional Logic in Lean"), " (and it might help to read the previous chapters first)."), React.createElement("p", null, "The exercises are taken from ", React.createElement("a", { href: 'http://incredible.pm' }, "The Incredible Proof Machine"), " (under ", React.createElement("a", { href: 'https://github.com/nomeata/incredible/blob/master/LICENSE' }, "license"), "). Some people will find it easier, more fun, and addictive to do each exercise on The Incredible Proof Machine first and then port their proof to Lean."), React.createElement("p", null, "Create you own exercises by forking the ", React.createElement("a", { href: 'https://github.com/Antony74/lean-web-editor/tree/exercises' }, "repository"), "  on GitHub then editing ", React.createElement("a", { href: 'https://github.com/Antony74/lean-web-editor/blob/exercises/src/exercises.tsx' }, "exercises.tsx"), ".")),
     sessions: [{
         title: React.createElement("h2", null, "Session 1"),
         buttons: ['and.intro', 'and.left', 'and.right'],

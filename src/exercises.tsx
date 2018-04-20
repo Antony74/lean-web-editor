@@ -30,9 +30,8 @@ export const sessions: Sessions = {
         The exercises are taken from <a
         href='http://incredible.pm'>The Incredible Proof Machine</a> (under <a
         href='https://github.com/nomeata/incredible/blob/master/LICENSE'>license</a>).
-        You might find it easier, more fun, and addictive to do each exercise on The
-        Incredible Proof Machine first, and you can still learn Lean by porting your
-        proofs across.
+        Some people will find it easier, more fun, and addictive to do each exercise on The
+        Incredible Proof Machine first and then port their proof to Lean.
       </p>
       <p>
         Create you own exercises by forking the <a
